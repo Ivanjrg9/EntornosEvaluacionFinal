@@ -39,7 +39,11 @@ public abstract class Bañista {
     }
 
     public void setEdad(int edad) {
-        this.edad = edad;
+        if (edad<0){
+            System.out.println("Error edad menor que 0");
+        }else {
+            this.edad= edad;
+        }
     }
 
     public String getNombre() {

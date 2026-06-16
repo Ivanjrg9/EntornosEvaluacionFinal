@@ -10,7 +10,7 @@ public class Niño extends Bañista{
 
     @Override
     void pagar() {
-
+        System.out.println("Niño (abono de NIÑO) pagando 15.0€");
     }
 
     public String getTelefono_contacto() {

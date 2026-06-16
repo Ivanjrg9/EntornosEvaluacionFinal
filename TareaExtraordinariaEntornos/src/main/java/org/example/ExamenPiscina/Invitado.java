@@ -20,6 +20,6 @@ public class Invitado extends Bañista{
 
     @Override
     void pagar() {
-
+        System.out.println("Invitado (bono invitado) pagando 3.5€");
     }
 }
