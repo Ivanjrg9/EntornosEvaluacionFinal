@@ -1,15 +1,6 @@
 package org.example;
 
-import java.util.ArrayList;
-import java.util.ArrayDeque;
-import java.util.Deque;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.Queue;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * ============================================================
@@ -27,7 +18,46 @@ import java.util.Scanner;
  */
 public class ChuletaJava {
 
+
+
     public static void main(String[] args) {
+        HashMap<String,Integer> goleadores = new HashMap<>();
+        goleadores.put("ANDRÉ SILVA",6);
+        goleadores.put("RONALDO NAZARIO",156);
+
+        Iterator<Map.Entry<String,Integer>> itmapita = goleadores.entrySet().iterator();
+
+        while(itmapita.hasNext()){
+            Map.Entry<String,Integer> goleadorGol = itmapita.next();
+            System.out.println(goleadorGol.getKey() + " ha marcado " + goleadorGol.getValue() + " goles.");
+            if (goleadorGol.getValue()<100){
+                itmapita.remove();
+            }
+        }
+
+        TreeSet<String> peliculas = new TreeSet();
+
+        peliculas.add("SCREAM");
+        peliculas.add("CARS");
+        peliculas.add("TOY STORY");
+        peliculas.add("BOLT");
+
+        Iterator<String> it = peliculas.iterator();
+
+        peliculas.remove("BOLT");
+
+        while (it.hasNext()){
+
+            String peli = it.next();
+
+            if (peli.equals("BOLT")){
+                it.remove();
+            }
+
+        }
+
+        System.out.println(peliculas);
+        System.out.println(goleadores.entrySet());
         titulo("1. VARIABLES Y TIPOS");           bloqueVariables();
         titulo("2. OPERADORES");                  bloqueOperadores();
         titulo("3. CONDICIONALES (if / switch)"); bloqueCondicionales();

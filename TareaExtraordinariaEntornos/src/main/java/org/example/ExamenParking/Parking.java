@@ -55,7 +55,7 @@ public class Parking {
                 double precioPagar = ticket.getMinutos() * precio_minuto;
                 System.out.println("Minutos: " + ticket.getMinutos() + " precio: " + getPrecio_minuto() + " Importe a pagar: " + precioPagar + " €" );
                 return ticket;
-            }  
+            }
         }
         return null;
     }
