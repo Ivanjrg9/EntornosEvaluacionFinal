@@ -69,8 +69,39 @@ class GestionExamenFinalTest {
     }
 
     @Test
+    void sobresaliente(){
+        assertEquals("Sobresaliente",alumno.clasificarResultado(9.5));
+    }
+
+    @Test
+    void alumnoNoPuedeRecuperar(){
+        alumno.setTareasEntregadas(2);
+        assertFalse(alumno.puedePresentarseRecuperacion());
+    }
+
+    @Test
+    void puntosExtraCompro(){
+        assertEquals(6,alumno.calcularPuntosExtra(5));
+    }
+
+    @Test
     void calcPuntExtr(){
         assertEquals(0,alumno.calcularPuntosExtra(0),0.001);
+    }
+
+    @Test
+    void matriculaDehonor(){
+        alumno.setNotaExamen(5);
+        alumno.setAsistenciaMinima(true);
+        alumno.setTareasEntregadas(5);
+        assertTrue(alumno.tieneDerechoMatriculaHonor(9.5));
+    }
+
+    @Test
+    void ejercicio5(){
+        alumno.setNotaExamen(8);
+        alumno.setTareasEntregadas(3);
+        assertEquals(8,alumno.calcularNotaFinal(8.0),0.001);
     }
 
     @Test
