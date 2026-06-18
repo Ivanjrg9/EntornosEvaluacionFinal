@@ -56,6 +56,24 @@ class GestionExamenFinalTest {
     }
 
     @Test
+    void alumnoNota(){
+        alumno.setNotaExamen(2);
+        alumno.setTareasEntregadas(3);
+        assertEquals(2.3,alumno.calcularNotaFinal(3.0),0.001);
+    }
+
+    @Test
+    void norecupera(){
+        alumno.setNotaExamen(7);
+        assertFalse(alumno.puedePresentarseRecuperacion());
+    }
+
+    @Test
+    void calcPuntExtr(){
+        assertEquals(0,alumno.calcularPuntosExtra(0),0.001);
+    }
+
+    @Test
     void testConstructor() {
         assertEquals("Ivan", alumno.getNombreAlumno());
         assertEquals(4.0, alumno.getNotaExamen(), 0.001);
