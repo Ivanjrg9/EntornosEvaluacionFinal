@@ -15,6 +15,47 @@ class GestionExamenFinalTest {
     }
 
     @Test
+    void devuelveNotable(){
+     assertEquals("Notable",alumno.clasificarResultado(8.0));
+    }
+
+    @Test
+    void calcularNotaFinal(){
+        assertEquals(6.3,alumno.calcularNotaFinal(7.0),0.001);
+    }
+
+    @Test
+    void asistenciaMinima(){
+        alumno.setAsistenciaMinima(false);
+        assertFalse(alumno.puedePresentarseRecuperacion());
+    }
+
+    @Test
+    void calcularPuntosDevuelve4(){
+        assertEquals(4,alumno.calcularPuntosExtra(3));
+    }
+
+    @Test
+    void testExcepciones(){
+        assertThrows(ArithmeticException.class,()->{ int resulado = 1/0;});
+    }
+
+    @Test
+    void devuelveSuspenso(){
+        assertEquals("Suspenso",alumno.clasificarResultado(3.0));
+    }
+
+    @Test
+    void asistenciasNotasRecuperacion(){
+        assertTrue(alumno.puedePresentarseRecuperacion());
+    }
+
+    @Test
+    void calcularPorcentaje(){
+        assertEquals(50.0,alumno.calcularPorcentajeTareas(5,10),0.001);
+    }
+
+    @Test
     void testConstructor() {
         assertEquals("Ivan", alumno.getNombreAlumno());
         assertEquals(4.0, alumno.getNotaExamen(), 0.001);
