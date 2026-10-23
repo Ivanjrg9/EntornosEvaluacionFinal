@@ -1,4 +1,4 @@
-package org.example.ChuletaIzan;
+package org.example.ChuletaRepaso;
 
 import java.util.HashSet;
 import java.util.Random;
